@@ -74,13 +74,6 @@ __pycache__/
 /tmp/data*.json
 /tmp/*.json
 
-# Plot outputs
-*.png
-*.svg
-*.jpg
-*.jpeg
-*.pdf
-*.ps
 
 # Logs
 *.log
