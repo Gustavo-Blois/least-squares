@@ -1,0 +1,25 @@
+name: Haskell CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-haskell@v1
+      with:
+        ghc-version: '9.6.7'
+    
+    - name: Install Python deps
+      run: pip install matplotlib scipy numpy
+    
+    - name: Build
+      run: |
+        cabal update
+        cabal build
+    
+    - name: Test run
+      run: cabal run least-squares
