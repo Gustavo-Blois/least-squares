@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-haskell@v1
+      with:
+        ghc-version: '9.6.7'
+    
+    - name: Install Python deps
+      run: pip install matplotlib scipy numpy
+    
+    - name: Build
+      run: |
+        cabal update
+        cabal install --install-method=copy --installdir=dist
+      # ou: ghc -o least-squares app/Main.hs -isrc
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          dist/least-squares
+          README.md
+          assets/plot.png
+        generate_release_notes: true
