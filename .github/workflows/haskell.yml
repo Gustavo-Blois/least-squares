@@ -1,25 +1,40 @@
 name: Haskell CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v4
     
-    - uses: actions/setup-haskell@v1
+    - uses: haskell-actions/setup@v2
       with:
         ghc-version: '9.6.7'
+        cabal-version: '3.10'
     
-    - name: Install Python deps
-      run: pip install matplotlib scipy numpy
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install matplotlib scipy numpy
+    
+    - name: Cache cabal
+      uses: actions/cache@v3
+      with:
+        path: ~/.cabal
+        key: ${{ runner.os }}-cabal-${{ hashFiles('**/*.cabal') }}
+        restore-keys: ${{ runner.os }}-cabal-
+    
+    - name: Update cabal
+      run: cabal update
     
     - name: Build
-      run: |
-        cabal update
-        cabal build
+      run: cabal build
     
-    - name: Test run
+    - name: Run
       run: cabal run least-squares
