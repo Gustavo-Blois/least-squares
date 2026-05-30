@@ -1,0 +1,95 @@
+# Haskell
+dist/
+dist-*/
+dist-newstyle/
+cabal.project.local
+*.hi
+*.o
+*.dyn_o
+*.dyn_hi
+.hpc
+.stack-work/
+.stack-work-*/
+.hsenv/
+_*.cabal
+*.cabal.tpl
+cabal.config
+cabal.project.local~
+.ghc.environment.*
+
+# Build artifacts
+*.aux
+*.log
+*.out
+*.exe
+*.exe.mdb
+*.exe.pdb
+*.ilk
+*.pdb
+*.manifest
+
+# GHCi
+.ghci
+*.ghci
+
+# Haddock
+doc/
+*.haddock
+*.tix
+
+# Cabal sandbox
+cabal.sandbox.config
+.cabal-sandbox/
+
+# Stack
+.stack-work/
+.stack-work-*/
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+.directory
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# Python (matplotlib generated)
+*.pyc
+__pycache__/
+/tmp/data*.json
+/tmp/*.json
+
+# Plot outputs
+*.png
+*.svg
+*.jpg
+*.jpeg
+*.pdf
+*.ps
+
+# Logs
+*.log
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Test files
+test/tmp/
+test/*.log
