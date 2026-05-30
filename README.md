@@ -5,8 +5,8 @@ The current implementation finds an equation in the form `f(x) = a₀ + a₁·x`
 ## Method
 Given points `(xᵢ, yᵢ)`, the coefficients are:
 
-$$a₁ = \frac{n·Σxy - Σx·Σy}{n·Σx² - (Σx)²}$$
-$$a₀ = \frac{Σx²·Σy - Σx·Σxy}{n·Σx² - (Σx)²}$$
+a₁ = (n·Σxy - Σx·Σy) / (n·Σx² - (Σx)²)
+a₀ = (Σx²·Σy - Σx·Σxy) / (n·Σx² - (Σx)²)
 
 where n is the length of the x list.
 
