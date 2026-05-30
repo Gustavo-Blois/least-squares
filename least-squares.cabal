@@ -1,0 +1,13 @@
+cabal-version: 3.8
+name: least-squares
+version: 0.1.0.0
+build-type: Simple
+library
+ exposed-modules: Lib
+ hs-source-dirs: src
+ build-depends: base >=4.7 && <5,
+
+executable least-squares
+ main-is: Main.hs
+ hs-source-dirs: app
+ build-depends: base, least-squares, matplotlib
