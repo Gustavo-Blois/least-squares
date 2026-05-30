@@ -14,7 +14,7 @@ For `xs = [1..8]` and `ys = [0.5, 0.6, 0.9, 0.8, 1.2, 1.5, 1.7, 2.0]`:
 - `a₀ = 0.175`
 - `a₁ = 0.2167`
 - `SSE = 0.0883`
-- 
+
 ![Regression plot](assets/plot.png)
 
 ## Dependencies
